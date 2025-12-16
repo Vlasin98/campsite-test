@@ -40,9 +40,30 @@ Because localhost.df.overmind-demo.com is an active local/demo domain that resol
 
 <h3>🧠 Reasoning</h3>
 
+### RDS Aurora PostgresSQL major engine upgrade - compatibility and availability risk
+
+**Observations `12`**
+
+**Hypothesis**
+
+The upgrade will trigger a major version change across all cluster instances, requiring restarts and possibly instance replacements or failovers. This can cause:\n- Incompatible behavior for SQL semantics, query plans, and extensions that depend on PostgreSQL 13, potentially breaking existing queries, stored procedures, or application logic. In- Client compatibility issues, including drivers or ORMS not tested against PostgreSQL 17.5, and potential need for dump/restore or migration testing.\n- Downtime and connection failures during the upgrade as instances cycle, cluster endpoints fail over, or instances become temporarily unavailable.
+
+**Investigation**
+
+Allowing a major Aurora PostgreSQL engine upgrade for the RDS cluster (from 13.20 to 17.5 with allow_major_version_upgrade=true) introduces a high-impact application/ database compațibility and availability risk. The upgrade will trigger a major version change across all cluster instances, requiring restarts and possibly instance replacements or failovers.
+This is a production-grade risk that requires maintenance planning, compatibility testing (including extensions and parameter expectations), and reliable backups before proceeding.
+
+**✔  Hypothesis proven**
+
+---
+
+<details>
+
+<summary>✖ Disproven hypothesis · 2</summary>
+
 >### ~~RDS Aurora PostgresSQL major engine upgrade - compatibility and availability risk~~
 >
-> **Observations · 12**
+> **Observations `12`**
 > 
 > **Hypothesis**
 >
@@ -56,7 +77,7 @@ Because localhost.df.overmind-demo.com is an active local/demo domain that resol
 
 >### ~~RDS Aurora PostgresSQL major engine upgrade - compatibility and availability risk~~
 >
-> **Observations · 12**
+> **Observations `12`**
 > 
 > **Hypothesis**
 >
@@ -68,21 +89,7 @@ Because localhost.df.overmind-demo.com is an active local/demo domain that resol
 >
 > **✖  Hypothesis disproven**
 
-
->### RDS Aurora PostgresSQL major engine upgrade - compatibility and availability risk
->
-> **Observations · 12**
-> 
-> **Hypothesis**
->
-> The upgrade will trigger a major version change across all cluster instances, requiring restarts and possibly instance replacements or failovers. This can cause:\n- Incompatible behavior for SQL semantics, query plans, and extensions that depend on PostgreSQL 13, potentially breaking existing queries, stored procedures, or application logic. In- Client compatibility issues, including drivers or ORMS not tested against PostgreSQL 17.5, and potential need for dump/restore or migration testing.\n- Downtime and connection failures during the upgrade as instances cycle, cluster endpoints fail over, or instances become temporarily unavailable.
->
-> **Investigation**
->
-> Allowing a major Aurora PostgreSQL engine upgrade for the RDS cluster (from 13.20 to 17.5 with allow_major_version_upgrade=true) introduces a high-impact application/ database compațibility and availability risk. The upgrade will trigger a major version change across all cluster instances, requiring restarts and possibly instance replacements or failovers.
->This is a production-grade risk that requires maintenance planning, compatibility testing (including extensions and parameter expectations), and reliable backups before proceeding.
->
-> **✔  Hypothesis proven**
+</details>
 
 
 ---
