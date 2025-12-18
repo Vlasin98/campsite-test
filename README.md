@@ -38,7 +38,9 @@ Because localhost.df.overmind-demo.com is an active local/demo domain that resol
 
 ---
 
-<h3>🧠 Reasoning</h3>
+<details>
+
+<summary> 🧠 Reasoning · ✖ 2 · ✔ 1</summary>
 
 ### RDS Aurora PostgresSQL major engine upgrade - compatibility and availability risk
 
@@ -57,10 +59,6 @@ This is a production-grade risk that requires maintenance planning, compatibilit
 
 ---
 
-<details>
-
-<summary>✖ Disproven hypothesis · 2</summary>
-
 >### ~~RDS Aurora PostgresSQL major engine upgrade - compatibility and availability risk~~
 >
 > **Observations `12`**
@@ -75,7 +73,7 @@ This is a production-grade risk that requires maintenance planning, compatibilit
 >
 > **✖  Hypothesis disproven**
 
->### ~~RDS Aurora PostgresSQL major engine upgrade - compatibility and availability risk~~
+> ### ~~RDS Aurora PostgresSQL major engine upgrade - compatibility and availability risk~~
 >
 > **Observations `12`**
 > 
@@ -90,7 +88,6 @@ This is a production-grade risk that requires maintenance planning, compatibilit
 > **✖  Hypothesis disproven**
 
 </details>
-
 
 ---
 
